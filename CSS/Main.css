@@ -1,0 +1,388 @@
+@font-face {
+    font-family: 'Cairo';
+    font-weight: 300;
+    src: url(../Fonts/Cairo/static/Cairo-Regular.ttf);
+}
+@font-face {
+    font-family: 'Cairo';
+    font-weight: 700;
+    src: url(../Fonts/Cairo/static/Cairo-Bold.ttf);
+}
+@font-face {
+    font-family: 'Rubik';
+    font-weight: 300;
+    src: url(../Fonts/Rubik/static/Rubik-Regular.ttf);
+}
+@font-face {
+    font-family: 'Rubik';
+    font-weight: 700;
+    src: url(../Fonts/Rubik/static/Rubik-Bold.ttf);
+}
+@font-face {
+    font-family: 'Exo';
+    font-weight: 300;
+    src: url(../Fonts/Exo/static/Exo2-Regular.ttf);
+}
+@font-face {
+    font-family: 'Exo';
+    font-weight: 700;
+    src: url(../Fonts/Exo/static/Exo2-Bold.ttf);
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body {
+    width: 100%;
+    background-color: #ebf6ff;
+    overflow-x: hidden;
+}
+body::-webkit-scrollbar {
+    width: 6px;
+} 
+body::-webkit-scrollbar-track {
+    background: #ebf6ff;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: #ff5c8a;
+    border-radius: 20px;
+}
+::selection {
+    background-color: #ffafcc98;
+    color: white;
+}
+
+.flex {
+    display: flex;
+}
+.row {
+    flex-direction: row;
+}
+.col {
+    flex-direction: column;
+}
+.wrap {
+    flex-wrap: wrap;
+}
+.center {
+    justify-content: center;
+    align-items: center;
+}
+.between {
+    justify-content: space-between;
+}
+.evenly {
+    justify-content: space-evenly;
+}
+.around {
+    justify-content: space-around;
+}
+
+.img img {
+    width: 100%;
+}
+
+p {
+    text-transform: capitalize;
+}
+.title {
+    font-family: 'Rubik', 'Exo', 'Cairo';
+    font-weight: 700;
+    font-size: 52px;
+    color: #2c363f;
+    transition: 0.2s 0s linear;
+}
+.align {
+    font-family: 'Rubik', 'Exo', 'Cairo';
+    font-weight: 700;
+    font-size: 28px;
+    color: #2c363f;
+    transition: 0.2s 0s linear;
+}
+.text {
+    font-family: 'Rubik', 'Exo', 'Cairo';
+    font-weight: 100;
+    font-size: 22px;
+    color: #2c363f;
+    transition: 0.2s 0s linear;
+}
+.links {
+    text-decoration: none;
+    font-family: 'Cairo', 'Exo', 'Rubik';
+    font-weight: 900;
+    font-size: 22px;
+    color: #2c363f;
+    transition: 0.2s 0s linear;
+}
+.links:hover {
+    text-decoration: solid;
+}
+
+.transition {
+    transition: 0.2s 0s linear;
+}
+/* ----------------------------------------- */
+header {
+    width: 100%;
+    height: 800px;
+    background-image: url(../Background/Astronaut\ IN\ Butterflies.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    animation: headerBack 15s infinite ease-in-out;
+}
+header .text {
+    color: #f2f5ea;
+}
+.header-card {
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    margin: 30px;
+    padding: 30px;
+}
+.title-card {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    font-size: 172px;
+    color: #f2f5ea;
+}
+/* ----------------------------------------- */
+.gallery {
+    width: 100%;
+    position: relative;
+    padding: 30px;
+    background-image: linear-gradient(180deg, #ff5c8a, #ff99ac);
+}
+.gallery-cards {
+    width: 100%;
+    flex-wrap: wrap;
+}
+.gallery .title {
+    color: #f2f5ea;
+}
+.gallery .align {
+    color: #f2f5ea;
+}
+
+.card {
+    width: 300px;
+    height: 700px;
+    background-color: #f2f5ea;
+    border: 2px white solid;
+}
+
+.card-img-1 {
+    background-image: url(../Background/Cards/1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.card-img-2 {
+    background-image: url(../Background/Cards/2.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.card-img-3 {
+    background-image: url(../Background/Cards/3.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+/* ----------------------------------------- */
+/* Flat Wide */
+.flat-wide {
+    width: 100%;
+    gap: 30px;
+    overflow: hidden;
+}
+
+:root{
+    --index: calc(1vw + 1vh);
+    --transition: cubic-bezier(.1, .7, 0, 1);
+}
+.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.items{
+    display: flex;
+    gap: 0.4rem;
+    perspective: calc(var(--index) * 60);
+}
+.item{
+    width: 100px;
+    height: 500px;
+    background-color: #222;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    filter: grayscale(1) brightness(.5);
+    transition: transform 1.25s var(--transition), filter 3s var(--transition), width 1.25s var(--transition);
+    will-change: transform, filter, rotateY, width;
+}
+.item::before, .item::after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 20px;
+    right: calc(var(--index) * -1);
+}
+.item::after{
+    left: calc(var(--index) * -1);
+}
+.items .item:hover{
+    filter: inherit;
+    transform: translateZ(calc(var(--index) * 10));
+}
+
+/*Right*/
+.items .item:hover + *{
+    filter: inherit;
+    transform: translateZ(calc(var(--index) * 8.5)) rotateY(35deg);
+    z-index: -1;
+}
+.items .item:hover + * + *{
+    filter: inherit;
+    transform: translateZ(calc(var(--index) * 5.6)) rotateY(40deg);
+    z-index: -2;
+}
+.items .item:hover + * + * + *{
+    filter: inherit;
+    transform: translateZ(calc(var(--index) * 2.5)) rotateY(30deg);
+    z-index: -3;
+}
+.items .item:hover + * + * + * + *{
+    filter: inherit;
+    transform: translateZ(calc(var(--index) * .6)) rotateY(15deg);
+    z-index: -4;
+}
+
+
+/*Left*/
+.items .item:has( + :hover){
+    filter: inherit;
+    transform: translateZ(calc(var(--index) * 8.5)) rotateY(-35deg);
+}
+.items .item:has( + * + :hover){
+    filter: inherit;
+    transform: translateZ(calc(var(--index) * 5.6)) rotateY(-40deg);
+}
+.items .item:has( + * + * + :hover){
+    filter: inherit;
+    transform: translateZ(calc(var(--index) * 2.5)) rotateY(-30deg);
+}
+.items .item:has( + * + * + * + :hover){
+    filter: inherit;
+    transform: translateZ(calc(var(--index) * .6)) rotateY(-15deg);
+}
+.items .item:active, .items .item:focus {
+	width: 28vw;
+	filter: inherit;
+	z-index: 100;
+	transform: translateZ(calc(var(--index) * 10));
+    margin: 0 .45vw;
+}
+/* ----------------------------------------- */
+/* Why Sections */
+.why {
+    margin-top: 50px;
+}
+.why-text {
+    width: 50%;
+    align-items: center;
+    padding: 20px;
+}
+.why-text .text {
+    height: 598px;
+    overflow: auto;
+}
+.why-text .text::-webkit-scrollbar {
+    width: 6px;
+} 
+.why-text .text::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+.why-text .text::-webkit-scrollbar-thumb {
+    background-color: #ff5c8a;
+}
+.why-img {
+    width: 50%;
+    height: 700px;
+    background-image: url(../Background/Cards/Why.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+}
+/* ----------------------------------------- */
+/* Feed */
+.feedback {
+    width: 100%;
+    margin: 50px 0px;
+    background-color: white;
+}
+.feed-box {
+    width: 50%;
+    padding: 20px;
+}
+label {
+    margin-top: 20px;
+    font-family: 'Rubik', 'Exo', 'Cairo';
+    font-size: 24px;
+}
+.input {
+    margin-top: 5px;
+    padding: 10px 5px;
+    font-family: 'Rubik', 'Exo', 'Cairo';
+    font-weight: 100;
+    font-size: 20px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px #2c363f solid;
+}
+.feed-img {
+    width: 50%;
+    background-image: url(../Background/Cards/Feed.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+/* ----------------------------------------- */
+/* Footer */
+footer {
+    width: 100%;
+    gap: 30px;
+    padding: 20px;
+    background-color: #2c363f;
+}
+footer .title {
+    font-size: 42px;
+    color: #f2f5ea;
+}
+footer .title img {
+    width: 50px;
+    filter: grayscale(1) brightness(1.7);
+}
+footer .align, footer .links {
+    color: #f2f5ea;
+}
+/* ----------------------------------------- */
+/* Keys */
+@keyframes headerBack {
+    0% {
+        scale: 1;
+    }
+    50% {
+        scale: 1.05;
+    }
+    100% {
+        scale: 1;
+    }
+}
